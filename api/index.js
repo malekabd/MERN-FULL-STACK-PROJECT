@@ -1,8 +1,24 @@
-const express = require("express");
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+process.on("uncaughtException", (err) => {
+  console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log("connected to MongoDB ");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const app = express();
-
-
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000!!!");
