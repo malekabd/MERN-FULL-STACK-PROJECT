@@ -17,8 +17,9 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true } //used to record the creation and edit time
+  { timestamps: true }
 );
 
 const User = mongoose.model("User", userSchema);
+
 export default User;
