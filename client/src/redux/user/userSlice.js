@@ -14,6 +14,10 @@ const userSlice = createSlice({
       state.loading = true;
     },
     signInSuccess: (state, action) => {
+      /* `state.currentUser = ` is assigning the value of `action.payload` to the `currentUser`
+      property of the `state` object. This is typically done in a Redux reducer to update the state
+      with new data. In this case, it is updating the `currentUser` property with the user data
+      received from the `signInSuccess` action. */
       state.currentUser = action.payload;
       state.loading = false;
       state.error = null;
