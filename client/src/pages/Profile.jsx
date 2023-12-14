@@ -30,6 +30,8 @@ export default function Profile() {
   const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
 
+  console.log(formData);
+  console.log();
   // firebase storage
   // allow read;
   // allow write: if
@@ -44,8 +46,8 @@ export default function Profile() {
 
   const handleFileUpload = (file) => {
     const storage = getStorage(app);
-    const fileName = new Date().getTime() + file.name;
-    const storageRef = ref(storage, fileName);
+    const fileName = new Date().getTime() + file.name; //gives custom name
+    const storageRef = ref(storage, fileName); //saving place
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
